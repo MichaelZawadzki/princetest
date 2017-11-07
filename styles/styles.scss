@@ -1,0 +1,209 @@
+@font-face {
+    src: url('fonts/Amplify.ttf');
+    font-family: 'Amplify';
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    src: url('fonts/BentonSans-Book.ttf');
+    font-family: 'Benton Sans Book';
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    src: url('fonts/BentonSans-Light.ttf');
+    font-family: 'Benton Sans Light';
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    src: url('fonts/BentonSans-Medium.ttf');
+    font-family: 'Benton Sans Medium';
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Benton Sans Book';
+    font-size: 14px;
+    color: #333;
+}
+
+a {
+    &:link, &:visited, &:hover, &:active {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+// OVERALL PAGE
+@page {
+    margin-top: 100px;
+
+    @top {
+        content: flow(header);
+    }
+
+    @bottom {
+        font-family: 'Benton Sans Book';
+        content: counter(page);
+    }
+}
+
+@page intro, tableOfContents {
+    @top {
+        content: '';
+    }
+    @bottom {
+        content: '';
+    }
+}
+
+// PAGE HEADER
+header {
+    prince-flow: static(header);
+
+    h2, h3 {
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    h2 {
+        line-height: 30px;
+        width: 530px;
+        border-bottom: 1px solid #484546;
+        color: #333 !important;
+    }
+
+    h3 {
+        line-height: 26px;
+    }
+
+    .unitOverviewIcon, .lessonOverviewIcon {
+        font-family: 'Benton Sans Medium';
+        font-size: 12px;
+        border: 2px solid;
+        border-radius: 5px;
+        float: right;
+        width: 130px;
+        height: 50px;
+        margin-top: -50px;
+        box-sizing: border-box;
+        padding: 7px 10px;
+        background-repeat: no-repeat;
+        background-size: 26px;
+        background-position: 90px 10px;
+    }
+
+    .unitOverviewIcon {
+        border-color: #f37321;
+        background-image: url(../images/globe.svg);
+    }
+
+    .lessonOverviewIcon {
+        border-color: #b2d235;
+        background-image: url(../images/book.svg);
+    }
+}
+
+// COVER PAGE
+.intro {
+    width: 100%;
+    page-break-after: always;
+    margin-top: 250px;
+    page: intro;
+
+    img {
+        width: 100%;
+    }
+
+    h2, h3 {
+        margin: 0 0 15px;
+    }
+
+    h2 {
+        font-family: 'Benton Sans Medium';
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    h3 {
+        font-family: 'Benton Sans Light';
+        font-size: 24px;
+        font-weight: normal;
+    }
+
+    p {
+        font-size: 8px;
+    }
+
+    footer {
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        img {
+            width: 160px;
+        }
+    }
+}
+
+// TABLE OF CONTENTS
+.tableOfContents {
+    width: 100%;
+    page-break-after: always;
+    page: tableOfContents;
+
+    h2 {
+        font-family: 'Benton Sans Medium';
+        font-size: 30px;
+        line-height: 34px;
+        padding-bottom: 10px;
+    }
+
+    h3 {
+        padding-top: 10px;
+    }
+
+    ul {
+        list-style: none;
+        max-width: 100%;
+        padding: 0 0 10px;
+        margin-left: 0;
+        overflow-x: hidden;
+
+        li {
+            line-height: 30px;
+
+            a[href]::after {
+                content: leader('.') target-counter(attr(href), page);
+            }
+
+        }
+
+    }
+
+}
+
+// MAIN PAGE CONTENT
+.pagedContent {
+    counter-reset: page 1;
+}
+
+.content {
+    page-break-after: always;
+
+    h2 {
+        color: #f37321;
+    }
+
+    li {
+        margin-bottom: 20px;
+    }
+
+}
