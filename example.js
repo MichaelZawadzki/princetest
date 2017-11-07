@@ -38,7 +38,7 @@ var processContent = function (_apiKey)
     console.log('Processing...');
 
     var startTime = Date.now();
-    var htmlContent = document.body.innerHTML;
+    var htmlContent = document.head.outerHTML + '\n' + document.body.outerHTML;
     //var htmlContent = document.getElementsByClassName('pagedContent')[0].innerHTML;
 
     DocRaptor.createAndDownloadDoc(_apiKey, {
