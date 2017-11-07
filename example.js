@@ -44,8 +44,9 @@ var processContent = function (_apiKey)
     DocRaptor.createAndDownloadDoc(_apiKey, {
         test: true,
         type: "pdf",
+        document_url: "https://michaelzawadzki.github.io/princetest/example.html"
         //document_url: "https://apps-studios.demo.learning.amplify.com/prince/raptor/example.html"
-        document_content: htmlContent,
+        //document_content: htmlContent,
         //document_content: document.querySelector('html').innerHTML, // use this page's HTML
         // document_content: "<h1>Hello world!</h1>",               // or supply HTML directly
         // document_url: "http://example.com/your-page",            // or use a URL
